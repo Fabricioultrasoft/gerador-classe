@@ -1,0 +1,11 @@
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\bin\Debug\GeradorClasse.Programa.exe
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\bin\Debug\GeradorClasse.Programa.pdb
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\obj\x86\Debug\GeradorClasse.Programa.Form1.resources
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\obj\x86\Debug\GeradorClasse.Programa.Properties.Resources.resources
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\obj\x86\Debug\GeradorClasse.Programa.exe
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\obj\x86\Debug\GeradorClasse.Programa.pdb
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\bin\Debug\mysql.data.dll
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\bin\Debug\mysql.data.entity.dll

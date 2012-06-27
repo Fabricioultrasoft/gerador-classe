@@ -1,0 +1,11 @@
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\bin\Debug\TestProject1.dll
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\bin\Debug\TestProject1.pdb
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\bin\Debug\GeradorClasse.Programa.exe
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\bin\Debug\mysql.data.dll
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\bin\Debug\mysql.data.entity.dll
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\bin\Debug\mysql.visualstudio.dll
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\bin\Debug\mysql.web.dll
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\bin\Debug\GeradorClasse.Programa.pdb
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\obj\Debug\ResolveAssemblyReference.cache
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\obj\Debug\TestProject1.dll
+c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\TestProject1\obj\Debug\TestProject1.pdb
