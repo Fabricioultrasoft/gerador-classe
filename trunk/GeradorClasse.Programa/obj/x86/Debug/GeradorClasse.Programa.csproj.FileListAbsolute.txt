@@ -9,3 +9,5 @@ c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.
 c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\obj\x86\Debug\GeradorClasse.Programa.pdb
 c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\bin\Debug\mysql.data.dll
 c:\users\caio\documents\visual studio 2010\Projects\GeradorClasse\GeradorClasse.Programa\bin\Debug\mysql.data.entity.dll
+C:\Users\Caio\Documents\Visual Studio 2010\Projects\GeradorEmail\GeradorClasse.Programa\obj\x86\Debug\GeradorClasse.Programa.exe
+C:\Users\Caio\Documents\Visual Studio 2010\Projects\GeradorEmail\GeradorClasse.Programa\obj\x86\Debug\GeradorClasse.Programa.pdb
