@@ -26,7 +26,7 @@ namespace GeradorClasse.Programa
         {
             Conexao conexao = new Conexao(txtServidor.Text, cbxDatabase.Text, txtUsuario.Text, txtSenha.Text);
             if (conexao.TestarConexao())
-                MessageBox.Show("Conexão feita com sucesso");
+                MessageBox.Show("Conexão feita com sucesso!");
             else
                 MessageBox.Show("Não foi possivel fazer a conexão");
         }
