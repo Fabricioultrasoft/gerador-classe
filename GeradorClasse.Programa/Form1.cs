@@ -63,6 +63,11 @@ namespace GeradorClasse.Programa
             return database.GetDatabases(txtServidor.Text, txtUsuario.Text, txtSenha.Text);
         }
 
+        private void btnGerarEntidades_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
        
 
 

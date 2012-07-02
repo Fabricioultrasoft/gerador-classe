@@ -183,7 +183,6 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(585, 311);
             this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "PHP";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
@@ -207,6 +206,7 @@
             this.btnGerarEntidades.TabIndex = 8;
             this.btnGerarEntidades.Text = "Gerar";
             this.btnGerarEntidades.UseVisualStyleBackColor = true;
+            this.btnGerarEntidades.Click += new System.EventHandler(this.btnGerarEntidades_Click_1);
             // 
             // txtPrefixo
             // 

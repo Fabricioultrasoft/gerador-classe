@@ -7,7 +7,19 @@ namespace GeradorClasse.Programa
 {
     public class Colunas
     {
-        public string nome;
-        public string tipo;
+        private string nome;
+
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+        private string tipo;
+
+        public string Tipo
+        {
+            get { return tipo; }
+            set { tipo = value; }
+        }
     }
 }
