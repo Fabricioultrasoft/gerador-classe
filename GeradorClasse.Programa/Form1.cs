@@ -33,7 +33,7 @@ namespace GeradorClasse.Programa
 
         private void ckbPrefixo_CheckedChanged(object sender, EventArgs e)
         {
-            txtPrefixo.Enabled = ckbPrefixo.Checked;
+            txtPrefixo.Enabled = !ckbPrefixo.Checked;
         }
 
         private void btnGerarEntidades_Click(object sender, EventArgs e)
@@ -65,7 +65,30 @@ namespace GeradorClasse.Programa
 
         private void btnGerarEntidades_Click_1(object sender, EventArgs e)
         {
+            Tabela tabela = new Tabela();
+            try
+            {
+                progressBar.Value = 0;
+                List<Tabela> lstTabela = tabela.GetTablesFromDatabase(txtServidor.Text, cbxDatabase.Text, txtUsuario.Text, txtSenha.Text);
+                progressBar.Maximum = lstTabela.Count;
+                progressBar.Step = 1;
+                foreach (Tabela objTabela in lstTabela)
+                {
+                    progressBar.PerformStep();
+                    objTabela.GetColunas(txtServidor.Text, cbxDatabase.Text, txtUsuario.Text, txtSenha.Text);
+                    GeradorEntidades geradorEntidade = new GeradorEntidades(ckbPrefixo.Checked, txtPrefixo.Text, objTabela);
+                }
+                MessageBox.Show("Classes criadas com sucesso");
+            }
+            catch(Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
 
+        private void ckbUsaNamespace_CheckedChanged(object sender, EventArgs e)
+        {
+            txtNamespace.Enabled = ckbUsaNamespace.Enabled;
         }
 
        

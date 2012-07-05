@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace GeradorClasse.Programa
 {
@@ -21,5 +23,31 @@ namespace GeradorClasse.Programa
             get { return tipo; }
             set { tipo = value; }
         }
+
+        public List<Colunas> GetColumnsByTable(string servidor, string database, string usuario, string senha, Tabela tabela)
+        {
+            Conexao conexao = new Conexao(servidor, database, usuario, senha);
+
+            MySqlCommand command = new MySqlCommand("SHOW COLUMNS FROM " + tabela.Nome, conexao.conn);
+            MySqlDataAdapter da = new MySqlDataAdapter()
+            {
+                SelectCommand = command,
+
+            };
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            List<Colunas> lstColuna = new List<Colunas>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                Colunas objColuna = new Colunas()
+                {
+                    Nome = dr["Field"].ToString(),
+                    Tipo = dr["Type"].ToString().Contains('(') ? dr["Type"].ToString().Substring(0, dr["Type"].ToString().IndexOf('(')) : dr["Type"].ToString()
+                };
+                lstColuna.Add(objColuna);
+            }
+            return lstColuna;
+        }
+
     }
 }

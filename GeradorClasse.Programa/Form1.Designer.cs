@@ -46,6 +46,9 @@
             this.btnGerarEntidades = new System.Windows.Forms.Button();
             this.txtPrefixo = new System.Windows.Forms.TextBox();
             this.ckbPrefixo = new System.Windows.Forms.CheckBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.txtNamespace = new System.Windows.Forms.TextBox();
+            this.ckbUsaNamespace = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -187,6 +190,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.txtNamespace);
+            this.tabPage4.Controls.Add(this.ckbUsaNamespace);
             this.tabPage4.Controls.Add(this.btnGerarEntidades);
             this.tabPage4.Controls.Add(this.txtPrefixo);
             this.tabPage4.Controls.Add(this.ckbPrefixo);
@@ -200,7 +205,7 @@
             // 
             // btnGerarEntidades
             // 
-            this.btnGerarEntidades.Location = new System.Drawing.Point(353, 18);
+            this.btnGerarEntidades.Location = new System.Drawing.Point(504, 282);
             this.btnGerarEntidades.Name = "btnGerarEntidades";
             this.btnGerarEntidades.Size = new System.Drawing.Size(75, 23);
             this.btnGerarEntidades.TabIndex = 8;
@@ -225,11 +230,37 @@
             this.ckbPrefixo.Text = "Utilizar prefixo para chaves estrangeiras";
             this.ckbPrefixo.UseVisualStyleBackColor = true;
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(12, 359);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(917, 23);
+            this.progressBar.TabIndex = 3;
+            // 
+            // txtNamespace
+            // 
+            this.txtNamespace.Location = new System.Drawing.Point(236, 46);
+            this.txtNamespace.Name = "txtNamespace";
+            this.txtNamespace.Size = new System.Drawing.Size(192, 20);
+            this.txtNamespace.TabIndex = 10;
+            // 
+            // ckbUsaNamespace
+            // 
+            this.ckbUsaNamespace.AutoSize = true;
+            this.ckbUsaNamespace.Location = new System.Drawing.Point(16, 46);
+            this.ckbUsaNamespace.Name = "ckbUsaNamespace";
+            this.ckbUsaNamespace.Size = new System.Drawing.Size(213, 17);
+            this.ckbUsaNamespace.TabIndex = 9;
+            this.ckbUsaNamespace.Text = "Utilizar prefixo para chaves estrangeiras";
+            this.ckbUsaNamespace.UseVisualStyleBackColor = true;
+            this.ckbUsaNamespace.CheckedChanged += new System.EventHandler(this.ckbUsaNamespace_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 373);
+            this.ClientSize = new System.Drawing.Size(941, 391);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -263,6 +294,9 @@
         private System.Windows.Forms.Button btnGerarEntidades;
         private System.Windows.Forms.TextBox txtPrefixo;
         private System.Windows.Forms.CheckBox ckbPrefixo;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.TextBox txtNamespace;
+        private System.Windows.Forms.CheckBox ckbUsaNamespace;
     }
 }
 
