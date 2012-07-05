@@ -23,52 +23,56 @@ namespace GeradorClasse.Programa
             set { usaPrefixo = value; }
         }
 
-        public GeradorEntidades(bool usaPrefixo, string prefixo,Tabela tabela)
+        public GeradorEntidades(bool usaPrefixo, string prefixo, Tabela tabela)
         {
             this.usaPrefixo = usaPrefixo;
             this.prefixo = prefixo;
+            GerarArquivoClasse(tabela);
         }
         public GeradorEntidades(Tabela tabela)
         {
-            
+            GerarArquivoClasse(tabela);
         }
 
         public void GerarArquivoClasse(Tabela tabela)
         {
             string classe = GerarClasse(tabela);
-            Util.WriterFile(classe);
+            Util.WriterFile(@"C:\classes\" + Util.FormatPascalCase(tabela.Nome) + ".cs", classe);
         }
-        public string GerarReferencias()
+        private string GerarReferencias()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("using System;\n");
             return sb.ToString();
         }
-        public string GerarClasse(Tabela tabela)
+        private string GerarClasse(Tabela tabela)
         {
             StringBuilder sb = new StringBuilder();
+            string propriedades = GerarPropriedades(tabela.Colunas);
+            string metodos = GerarMetodosEncapsulados(tabela.Colunas);
+
             sb.AppendLine(String.Format("\tpublic class {0}", Util.FormatPascalCase(tabela.Nome)));
             sb.AppendLine("\t{");
-            GerarPropriedades(tabela.Colunas);
-            GerarMetodosEncapsulados(tabela.Colunas);
+            sb.AppendLine(propriedades);
+            sb.AppendLine(metodos);
             sb.AppendLine("\t}");
             return sb.ToString();
         }
-        public string GerarPropriedades(List<Colunas> colunas)
+        private string GerarPropriedades(List<Colunas> colunas)
         {
             StringBuilder sb = new StringBuilder();
             foreach (Colunas coluna in colunas)
             {
                 if (usaPrefixo)
                 {
-                    if (coluna.Nome.StartsWith(prefixo))
+                    if (coluna.Nome.StartsWith(prefixo.ToUpper()))
                     {
-                        string nome = coluna.Nome.Substring(prefixo.Length - 1);
+                        string nome = coluna.Nome.Substring(prefixo.Length);
                         sb.AppendLine(String.Format("\t\tprivate {0} {1};", Util.FormatPascalCase(nome), Util.FormatCamelCase(nome)));
                     }
                     else
                     {
-                        sb.AppendLine(String.Format("\t\tprivate {0} {1};", coluna.Tipo, Util.FormatCamelCase(coluna.Nome)));
+                        sb.AppendLine(String.Format("\t\tprivate {0} {1};", Util.ConvertToCSharpTypes(coluna.Tipo), Util.FormatCamelCase(coluna.Nome)));
                     }
                 }
                 // Implementar codigo para quando não usar
@@ -77,28 +81,28 @@ namespace GeradorClasse.Programa
             return sb.ToString();
         }
 
-        public string GerarMetodosEncapsulados(List<Colunas> colunas)
+        private string GerarMetodosEncapsulados(List<Colunas> colunas)
         {
             StringBuilder sb = new StringBuilder();
             foreach (Colunas coluna in colunas)
             {
                 if (usaPrefixo)
                 {
-                    if (coluna.Nome.StartsWith(prefixo))
+                    if (coluna.Nome.StartsWith(prefixo.ToUpper()))
                     {
-                        string nome = coluna.Nome.Substring(prefixo.Length - 1);
-                        sb.AppendLine(String.Format("\t\tpublic {0} {1};", Util.FormatPascalCase(nome), Util.FormatPascalCase(coluna.Nome)));
+                        string nome = coluna.Nome.Substring(prefixo.Length);
+                        sb.AppendLine(String.Format("\t\tpublic {0} {1}", Util.FormatPascalCase(nome), Util.FormatPascalCase(nome)));
                         sb.AppendLine("\t\t{");
-                        sb.AppendLine(String.Format("\t\t\tget { return {0}; }", coluna.Nome.ToLower()));
-                        sb.AppendLine(String.Format("\t\t\tset {{0} = value; }", coluna.Nome.ToLower()));
+                        sb.AppendLine(String.Format("\t\t\tget {{ return {0}; }}", Util.FormatCamelCase(nome)));
+                        sb.AppendLine(String.Format("\t\t\tset {{ {0} = value; }}", Util.FormatCamelCase(nome)));
                         sb.AppendLine("\t\t}");
                     }
                     else
                     {
                         sb.AppendLine(String.Format("\t\tpublic {0} {1};", coluna.Tipo, Util.FormatPascalCase(coluna.Nome)));
                         sb.AppendLine("\t\t{");
-                        sb.AppendLine(String.Format("\t\t\tget { return {0}; }", Util.FormatCamelCase(coluna.Nome)));
-                        sb.AppendLine(String.Format("\t\t\tset {{0} = value; }", Util.FormatCamelCase(coluna.Nome)));
+                        sb.AppendLine(String.Format("\t\t\tget {{ return {0}; }}", Util.FormatCamelCase(coluna.Nome)));
+                        sb.AppendLine(String.Format("\t\t\tset {{ {0} = value; }}", Util.FormatCamelCase(coluna.Nome)));
                         sb.AppendLine("\t\t}");
                     }
                 }
@@ -107,6 +111,6 @@ namespace GeradorClasse.Programa
             }
             return sb.ToString();
         }
-       
+
     }
 }
