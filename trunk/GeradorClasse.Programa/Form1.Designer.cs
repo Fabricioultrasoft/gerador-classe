@@ -43,12 +43,12 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtNamespace = new System.Windows.Forms.TextBox();
+            this.ckbUsaNamespace = new System.Windows.Forms.CheckBox();
             this.btnGerarEntidades = new System.Windows.Forms.Button();
             this.txtPrefixo = new System.Windows.Forms.TextBox();
             this.ckbPrefixo = new System.Windows.Forms.CheckBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.txtNamespace = new System.Windows.Forms.TextBox();
-            this.ckbUsaNamespace = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -109,6 +109,7 @@
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(154, 20);
             this.txtSenha.TabIndex = 1;
+            this.txtSenha.Text = "123456";
             // 
             // txtUsuario
             // 
@@ -132,6 +133,7 @@
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(191, 20);
             this.txtServidor.TabIndex = 1;
+            this.txtServidor.Text = "localhost";
             // 
             // label4
             // 
@@ -203,6 +205,24 @@
             this.tabPage4.Text = "C#";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // txtNamespace
+            // 
+            this.txtNamespace.Location = new System.Drawing.Point(236, 46);
+            this.txtNamespace.Name = "txtNamespace";
+            this.txtNamespace.Size = new System.Drawing.Size(192, 20);
+            this.txtNamespace.TabIndex = 10;
+            // 
+            // ckbUsaNamespace
+            // 
+            this.ckbUsaNamespace.AutoSize = true;
+            this.ckbUsaNamespace.Location = new System.Drawing.Point(16, 46);
+            this.ckbUsaNamespace.Name = "ckbUsaNamespace";
+            this.ckbUsaNamespace.Size = new System.Drawing.Size(213, 17);
+            this.ckbUsaNamespace.TabIndex = 9;
+            this.ckbUsaNamespace.Text = "Utilizar prefixo para chaves estrangeiras";
+            this.ckbUsaNamespace.UseVisualStyleBackColor = true;
+            this.ckbUsaNamespace.CheckedChanged += new System.EventHandler(this.ckbUsaNamespace_CheckedChanged);
+            // 
             // btnGerarEntidades
             // 
             this.btnGerarEntidades.Location = new System.Drawing.Point(504, 282);
@@ -236,24 +256,6 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(917, 23);
             this.progressBar.TabIndex = 3;
-            // 
-            // txtNamespace
-            // 
-            this.txtNamespace.Location = new System.Drawing.Point(236, 46);
-            this.txtNamespace.Name = "txtNamespace";
-            this.txtNamespace.Size = new System.Drawing.Size(192, 20);
-            this.txtNamespace.TabIndex = 10;
-            // 
-            // ckbUsaNamespace
-            // 
-            this.ckbUsaNamespace.AutoSize = true;
-            this.ckbUsaNamespace.Location = new System.Drawing.Point(16, 46);
-            this.ckbUsaNamespace.Name = "ckbUsaNamespace";
-            this.ckbUsaNamespace.Size = new System.Drawing.Size(213, 17);
-            this.ckbUsaNamespace.TabIndex = 9;
-            this.ckbUsaNamespace.Text = "Utilizar prefixo para chaves estrangeiras";
-            this.ckbUsaNamespace.UseVisualStyleBackColor = true;
-            this.ckbUsaNamespace.CheckedChanged += new System.EventHandler(this.ckbUsaNamespace_CheckedChanged);
             // 
             // Form1
             // 
