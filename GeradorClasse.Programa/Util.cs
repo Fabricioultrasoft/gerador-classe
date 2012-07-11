@@ -70,8 +70,17 @@ namespace GeradorClasse.Programa
 
                 case "text": return "string";
 
+                case "datetime": return "DateTime";
+
                 default: return "NotType";
             }
+        }
+
+        public static string FormatPkColumnName(string nome,string prefixo)
+        {
+            string nomeTemp = nome.Substring(prefixo.Length);
+            nomeTemp = String.Format("{0}_{1}", prefixo , nomeTemp);
+            return FormatCamelCase(nomeTemp);
         }
     }
 }

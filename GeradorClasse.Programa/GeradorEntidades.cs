@@ -67,11 +67,19 @@ namespace GeradorClasse.Programa
                 {
                     if (coluna.Nome.StartsWith(prefixo.ToUpper()))
                     {
-                        string nome = coluna.Nome.Substring(prefixo.Length);
-                        sb.AppendLine(String.Format("\t\tprivate {0} {1};", Util.FormatPascalCase(nome), Util.FormatCamelCase(nome)));
+                        if (coluna.IsPk)
+                        {
+                            sb.AppendLine(String.Format("\t\tprivate {0} {1};", Util.ConvertToCSharpTypes(coluna.Tipo), Util.FormatPkColumnName(coluna.Nome, prefixo)));
+                        }
+                        else
+                        {
+                            string nome = coluna.Nome.Substring(prefixo.Length);
+                            sb.AppendLine(String.Format("\t\tprivate {0} {1};", Util.FormatPascalCase(nome), Util.FormatCamelCase(nome)));
+                        }
                     }
                     else
                     {
+
                         sb.AppendLine(String.Format("\t\tprivate {0} {1};", Util.ConvertToCSharpTypes(coluna.Tipo), Util.FormatCamelCase(coluna.Nome)));
                     }
                 }
