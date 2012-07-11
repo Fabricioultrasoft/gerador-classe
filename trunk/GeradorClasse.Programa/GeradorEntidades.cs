@@ -36,8 +36,18 @@ namespace GeradorClasse.Programa
 
         public void GerarArquivoClasse(Tabela tabela)
         {
-            string classe = GerarClasse(tabela);
+            string classe = GerarClasseCompleta(tabela);
             Util.WriterFile(@"C:\classes\" + Util.FormatPascalCase(tabela.Nome) + ".cs", classe);
+        }
+        private string GerarClasseCompleta(Tabela tabela) // Gera com namespace e usings
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(GerarReferencias());
+            sb.AppendLine("namespace AscWeb.Entidades");
+            sb.AppendLine("{");
+            sb.AppendLine(GerarClasse(tabela));
+            sb.AppendLine("}");
+            return sb.ToString();
         }
         private string GerarReferencias()
         {
@@ -107,7 +117,7 @@ namespace GeradorClasse.Programa
                     }
                     else
                     {
-                        sb.AppendLine(String.Format("\t\tpublic {0} {1};", coluna.Tipo, Util.FormatPascalCase(coluna.Nome)));
+                        sb.AppendLine(String.Format("\t\tpublic {0} {1}", Util.ConvertToCSharpTypes(coluna.Tipo), Util.FormatPascalCase(coluna.Nome)));
                         sb.AppendLine("\t\t{");
                         sb.AppendLine(String.Format("\t\t\tget {{ return {0}; }}", Util.FormatCamelCase(coluna.Nome)));
                         sb.AppendLine(String.Format("\t\t\tset {{ {0} = value; }}", Util.FormatCamelCase(coluna.Nome)));
