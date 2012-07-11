@@ -24,7 +24,10 @@ namespace GeradorClasse.Programa
             string[] palavras = texto.Split('_');
             foreach (string palavra in palavras)
             {
-                temp += palavra[0].ToString().ToUpper() + palavra.Substring(1);
+                if (!string.IsNullOrEmpty(palavra))
+                {
+                    temp += palavra[0].ToString().ToUpper() + palavra.Substring(1);
+                }
 
             }
             return temp;
@@ -39,11 +42,14 @@ namespace GeradorClasse.Programa
             int cont = 0;
             foreach (string palavra in palavras)
             {
-                if (cont == 0)
-                    temp += palavra[0].ToString().ToLower() + palavra.Substring(1);
-                else
-                    temp += palavra[0].ToString().ToUpper() + palavra.Substring(1);
-                cont++;
+                if (!string.IsNullOrEmpty(palavra))
+                {
+                    if (cont == 0)
+                        temp += palavra[0].ToString().ToLower() + palavra.Substring(1);
+                    else
+                        temp += palavra[0].ToString().ToUpper() + palavra.Substring(1);
+                    cont++;
+                }
             }
             return temp;
         }
