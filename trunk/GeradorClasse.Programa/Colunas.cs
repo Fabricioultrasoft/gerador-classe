@@ -10,6 +10,13 @@ namespace GeradorClasse.Programa
     public class Colunas
     {
         private string nome;
+        private bool isPk;
+
+        public bool IsPk
+        {
+            get { return isPk; }
+            set { isPk = value; }
+        }
 
         public string Nome
         {
@@ -23,6 +30,7 @@ namespace GeradorClasse.Programa
             get { return tipo; }
             set { tipo = value; }
         }
+
 
         public List<Colunas> GetColumnsByTable(string servidor, string database, string usuario, string senha, Tabela tabela)
         {
@@ -42,7 +50,8 @@ namespace GeradorClasse.Programa
                 Colunas objColuna = new Colunas()
                 {
                     Nome = dr["Field"].ToString(),
-                    Tipo = dr["Type"].ToString().Contains('(') ? dr["Type"].ToString().Substring(0, dr["Type"].ToString().IndexOf('(')) : dr["Type"].ToString()
+                    Tipo = dr["Type"].ToString().Contains('(') ? dr["Type"].ToString().Substring(0, dr["Type"].ToString().IndexOf('(')) : dr["Type"].ToString(),
+                    isPk = dr["Key"].ToString() == "PRI" ? true : false
                 };
                 lstColuna.Add(objColuna);
             }
